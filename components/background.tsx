@@ -1,6 +1,6 @@
 import styles from '../styles/background.module.css';
 const Background = () => (
-    <div className='ripple-background'>
+    <div className={styles.background}>
         <div className={[styles.circle,styles.xxlarge,styles.shade1].join(' ')}/>
         <div className={[styles.circle, styles.xlarge, styles.shade2].join(' ')}/>
         <div className={[styles.circle, styles.large, styles.shade3].join(' ')}/>

@@ -1,6 +1,4 @@
-
-
-.ripple-background {
+.background {
     position: fixed;
     bottom: 0;
     z-index: -1;
