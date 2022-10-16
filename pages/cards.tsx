@@ -1,24 +1,31 @@
 import type {NextPage} from 'next'
-import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Navigation from "../components/navigation";
+import {useContext, useEffect, useState} from "react";
+import {AppCtx} from "../utils/context";
+import {I_Card} from "../utils/interfaces";
+import Grid2 from "@mui/material/Unstable_Grid2";
+import {useRouter} from "next/router";
+import FlashCard from "../components/flash-card";
 
-const Home: NextPage = () => {
+const Cards: NextPage = () => {
+    const {app} = useContext(AppCtx);
+    const router = useRouter();
+    const [cards, setCards] = useState<any>([]);
+
+    useEffect(() => {
+        let finalCards = app.sets.filter(item => item.id.toString() == router.query.id);
+        setCards(finalCards.length ? finalCards[0].cards : []);
+    }, [router.isReady]);
+
     return (
         <div className={styles.container}>
-            <Head>
-                <title>Espard - Flash Cards</title>
-                <meta name="description" content="Flash Card Management"/>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
-            <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Welcome to <span>Flash Cards !</span>
-                </h1>
-
-            </main>
+            <Grid2 mt={10} container rowSpacing={2} columnSpacing={2}>
+                {
+                    cards.map((item: I_Card) => <FlashCard key={item.id} {...item} />)
+                }
+            </Grid2>
         </div>
     )
 }
 
-export default Home
+export default Cards

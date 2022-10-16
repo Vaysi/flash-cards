@@ -11,23 +11,26 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import {School} from "@mui/icons-material";
+import {useRouter} from "next/router";
 
 const pages = ['Sets', 'Cards', 'Stats'];
 
 const Navigation = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    const router = useRouter();
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleCloseNavMenu = () => {
+    const handleCloseNavMenu = (page: string) => {
         setAnchorElNav(null);
+        router.push(page.toLowerCase());
     };
 
     return (
         <AppBar position="fixed">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <School sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <School sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
                     <Typography
                         variant="h6"
                         noWrap
@@ -35,7 +38,7 @@ const Navigation = () => {
                         href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
+                            display: {xs: 'none', md: 'flex'},
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             color: 'inherit',
@@ -45,7 +48,7 @@ const Navigation = () => {
                         Flash Cards
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -54,7 +57,7 @@ const Navigation = () => {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -71,17 +74,17 @@ const Navigation = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: {xs: 'block', md: 'none'},
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
                                     <Typography textAlign="center">{page}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    <AdbIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
                     <Typography
                         variant="h5"
                         noWrap
@@ -89,7 +92,7 @@ const Navigation = () => {
                         href=""
                         sx={{
                             mr: 2,
-                            display: { xs: 'flex', md: 'none' },
+                            display: {xs: 'flex', md: 'none'},
                             flexGrow: 1,
                             fontFamily: 'monospace',
                             fontWeight: 700,
@@ -100,12 +103,12 @@ const Navigation = () => {
                     >
                         Flash Cards
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                onClick={() => handleCloseNavMenu(page)}
+                                sx={{my: 2, color: 'white', display: 'block'}}
                             >
                                 {page}
                             </Button>

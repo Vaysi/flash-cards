@@ -1,20 +1,23 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Navigation from "../components/navigation";
+import {Box, Button} from "@mui/material";
+import {useRouter} from "next/router";
 
 const Home: NextPage = () => {
+    const router = useRouter();
+
+    const redirectTo = (key:string) => router.push(key);
     return (
         <div className={styles.container}>
-            <Head>
-                <title>Espard - Flash Cards</title>
-                <meta name="description" content="Flash Card Management"/>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
             <main className={styles.main}>
                 <h1 className={styles.title}>
                     Welcome to <span>Flash Cards !</span>
                 </h1>
+                <Box mt={3} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                    <Button size={"large"} sx={{mx:2}} variant="contained" onClick={() => redirectTo('sets')}>Cards</Button>
+                    <Button size={"large"} variant="contained" color={"secondary"} onClick={() => redirectTo('stats')}>Stats</Button>
+                </Box>
 
             </main>
         </div>

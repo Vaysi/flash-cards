@@ -2,7 +2,7 @@ import {createContext} from "react";
 import {AppContextInterface} from "./interfaces";
 
 
-export const AppCtx = createContext<AppContextInterface | null>({
+export const AppCtx = createContext<AppContextInterface>({
     app: {
         sets: []
     }, setApp: () => {}

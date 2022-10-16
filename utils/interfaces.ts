@@ -21,5 +21,6 @@ interface AppContextInterface {
 
 export type {
     AppContextInterface,
-    I_Set
+    I_Set,
+    I_Card
 }

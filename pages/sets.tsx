@@ -1,24 +1,22 @@
 import type {NextPage} from 'next'
-import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Navigation from "../components/navigation";
+import {useContext} from "react";
+import {AppCtx} from "../utils/context";
+import {I_Set} from "../utils/interfaces";
+import Set from "../components/set";
+import Grid2 from "@mui/material/Unstable_Grid2";
 
-const Home: NextPage = () => {
+const Sets: NextPage = () => {
+    const {app} = useContext(AppCtx);
     return (
         <div className={styles.container}>
-            <Head>
-                <title>Espard - Flash Cards</title>
-                <meta name="description" content="Flash Card Management"/>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
-            <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Welcome to <span>Flash Cards !</span>
-                </h1>
-
-            </main>
+            <Grid2 mt={10} container rowSpacing={2} columnSpacing={2}>
+                {
+                    app.sets.map((item:I_Set) => <Set key={item.id} {...item} />)
+                }
+            </Grid2>
         </div>
     )
 }
 
-export default Home
+export default Sets
