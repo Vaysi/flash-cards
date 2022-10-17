@@ -1,6 +1,6 @@
 import type {NextPage} from 'next'
 import styles from '../styles/Home.module.css'
-import {useContext, useEffect, useState} from "react";
+import {useCallback, useContext, useEffect, useState} from "react";
 import {AppCtx} from "../utils/context";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import {useRouter} from "next/router";
@@ -22,14 +22,23 @@ const Cards: NextPage = () => {
 
     const [viewMode, setViewMode] = useState<'cards' | 'exam'>('cards');
 
+    const getCurrentCards = useCallback(() => {
+        if(router.isReady){
+            if(!router.query.id){
+                router.push('sets');
+            }
+            let finalCards = app.sets.filter(item => item.id.toString() == router.query.id);
+            setCurrentSet((prev:any) => finalCards.length ? {
+                cards: shuffleArray(finalCards[0].cards),
+                label: finalCards[0].name,
+                id: finalCards[0].id,
+            } : prev);
+        }
+    },[router.isReady,app.sets,router.query])
+
     useEffect(() => {
-        let finalCards = app.sets.filter(item => item.id.toString() == router.query.id);
-        setCurrentSet(finalCards.length ? {
-            cards: shuffleArray(finalCards[0].cards),
-            label: finalCards[0].name,
-            id: finalCards[0].id,
-        } : currentSet);
-    }, [router.isReady]);
+        getCurrentCards();
+    }, [getCurrentCards]);
 
     const perPage = 2;
 
@@ -55,7 +64,7 @@ const Cards: NextPage = () => {
                         <Grid2 container rowSpacing={2} columnSpacing={2}>
                             {
                                 currentSet.cards.slice(0, page * perPage + perPage).map((item: I_Card) =>
-                                    <FlashCard {...item} />)
+                                    <FlashCard key={item.id} {...item} />)
                             }
                         </Grid2>
                     </InfiniteScroll>

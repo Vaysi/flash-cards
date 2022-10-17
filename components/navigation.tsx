@@ -13,7 +13,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import {School} from "@mui/icons-material";
 import {useRouter} from "next/router";
 
-const pages = ['Sets', 'Cards', 'Stats'];
+const pages = ['Sets', 'Stats'];
 
 const Navigation = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
