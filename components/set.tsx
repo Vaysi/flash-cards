@@ -1,4 +1,4 @@
-import {Card, CardContent, Typography} from "@mui/material";
+import {Card, CardActions, CardContent, Typography} from "@mui/material";
 import {I_Set} from "../utils/interfaces";
 import {memo} from "react";
 import Grid2 from "@mui/material/Unstable_Grid2";
@@ -16,9 +16,12 @@ const Set = (props: I_Set) => {
     return (
         <Grid2 xs={12} md={6} lg={4}>
             <Card className={Styles.card} onClick={getCards}>
-                <CardContent sx={{alignItems: 'center', display: 'flex', justifyContent: 'center'}}>
-                    <Typography variant={"h4"} color="text.secondary" className={Styles.text}>
+                <CardContent>
+                    <Typography textAlign={'center'} variant={"h4"} color="text.secondary" className={Styles.text}>
                         {props.name}
+                    </Typography>
+                    <Typography textAlign={'center'} color="text.secondary" className={Styles.text}>
+                        ( <b>{props.cards.length} Cards</b> is Available )
                     </Typography>
                 </CardContent>
             </Card>

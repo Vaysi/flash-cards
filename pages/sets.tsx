@@ -12,7 +12,7 @@ const Sets: NextPage = () => {
         <div className={styles.container}>
             <Grid2 mt={10} container rowSpacing={2} columnSpacing={2}>
                 {
-                    app.sets.map((item:I_Set) => <Set key={item.id} {...item} />)
+                    app.sets.map((item: I_Set) => <Set key={item.id} {...item} />)
                 }
             </Grid2>
         </div>

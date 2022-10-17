@@ -13,17 +13,26 @@ import theme from "../utils/theme";
 function MyApp({Component, pageProps}: AppProps) {
 
     const [app, setApp] = useState({
-        sets: []
+        sets: [],
+        stats: []
     });
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             let userApp = localStorage.getItem('app') ? JSON.parse(localStorage.getItem('app') as string) : {
-                sets: CardsExample
+                sets: CardsExample,
+                stats: []
             };
             setApp(userApp);
         }
     }, []);
+
+    useEffect(() => {
+        if(app.sets.length || app.stats.length){
+            localStorage.setItem('app',JSON.stringify(app));
+        }
+    }, [app]);
+
 
     return <>
         <Head>

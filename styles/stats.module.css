@@ -1,0 +1,13 @@
+.fab {
+    margin: 0px;
+    top: auto;
+    left: 20px;
+    bottom: 20px;
+    right: auto;
+    position: fixed;
+}
+
+.container {
+    padding: 0 2rem;
+}
+

@@ -10,9 +10,20 @@ interface I_Set {
     cards: Array<I_Card>;
 }
 
+interface I_Stat {
+    setId: number;
+    createdAt: Date;
+    totalQuestions: number;
+    totalAnsweredQuestions: number;
+    totalIncorrectAnsweredQuestions: number;
+    totalUnansweredQuestions: number;
+    answeredRatio: number;
+}
+
 interface AppContextInterface {
     app: {
         sets: Array<I_Set>;
+        stats: Array<I_Stat>;
     }
     setApp: any
 }
@@ -22,5 +33,6 @@ interface AppContextInterface {
 export type {
     AppContextInterface,
     I_Set,
-    I_Card
+    I_Card,
+    I_Stat
 }

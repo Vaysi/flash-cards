@@ -4,7 +4,8 @@ import {AppContextInterface} from "./interfaces";
 
 export const AppCtx = createContext<AppContextInterface>({
     app: {
-        sets: []
+        sets: [],
+        stats: [],
     }, setApp: () => {}
 });
 

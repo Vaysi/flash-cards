@@ -6,7 +6,7 @@ import Styles from '../styles/card.module.css';
 
 const FlashCard = (props: I_Card) => {
     return (
-        <Grid2 xs={12} md={6} lg={4}>
+        <Grid2 xs={12}>
             <Card className={Styles.card}>
                 <CardContent sx={{alignItems: 'center', display: 'flex', justifyContent: 'center'}}>
                     <Typography variant={"h4"} color="text.secondary" className={Styles.text}>

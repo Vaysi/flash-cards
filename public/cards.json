@@ -1,63 +1,93 @@
 [
   {
-    "id":0,
-    "name":"Learn Persian",
-    "cards":[
+    "id": 0,
+    "name": "Learn Persian",
+    "cards": [
       {
-        "id":0,
-        "front":"سلام | Salam",
-        "back":"Hi | Hello"
+        "id": 0,
+        "front": "سلام | Salam",
+        "back": "Hi | Hello"
       },
       {
-        "id":1,
-        "front":"قدرت | Qodrat",
-        "back":"Power"
+        "id": 1,
+        "front": "قدرت | Qodrat",
+        "back": "Power"
       },
       {
-        "id":2,
-        "front":"میمون | Maymoon",
-        "back":"Monkey"
+        "id": 2,
+        "front": "میمون | Maymoon",
+        "back": "Monkey"
       },
       {
-        "id":3,
-        "front":"کشتن | Koshtan",
-        "back":"To kill"
+        "id": 3,
+        "front": "کشتن | Koshtan",
+        "back": "To kill"
       },
       {
-        "id":4,
-        "front":"برنامه | Bar name",
-        "back":"Plan | Program"
+        "id": 4,
+        "front": "برنامه | Bar name",
+        "back": "Plan | Program"
       },
       {
-        "id":5,
-        "front":"مرگ | Marg",
-        "back":"Death"
+        "id": 5,
+        "front": "مرگ | Marg",
+        "back": "Death"
+      },
+      {
+        "id": 6,
+        "front": "درد | Dard",
+        "back": "Pain"
+      },
+      {
+        "id": 7,
+        "front": "امضا | Emza",
+        "back": "Signature"
+      },
+      {
+        "id": 8,
+        "front": "آسمان | Aseman",
+        "back": "Sky"
+      },
+      {
+        "id": 9,
+        "front": "زمین | Zamin",
+        "back": "Ground"
+      },
+      {
+        "id": 10,
+        "front": "ایست | East",
+        "back": "Stop"
+      },
+      {
+        "id": 11,
+        "front": "احمق | Ahmagh",
+        "back": "Stupid"
       }
     ]
   },
   {
-    "id":0,
-    "name":"Famous People",
-    "cards":[
+    "id": 1,
+    "name": "Famous People",
+    "cards": [
       {
-        "id":0,
-        "front":"ولین زن برنده مدال فیلدز ؟",
-        "back":"مریم میرضا خانی"
+        "id": 0,
+        "front": "اولین زن برنده مدال فیلدز ؟",
+        "back": "مریم میرضا خانی"
       },
       {
-        "id":1,
-        "front":"سازنده پی پال | اسپیس ایکس | تسلا ؟",
-        "back":"ایلان ماسک"
+        "id": 1,
+        "front": "سازنده پی پال | اسپیس ایکس | تسلا ؟",
+        "back": "ایلان ماسک"
       },
       {
-        "id":2,
-        "front":"خالق سیستم عامل لینوکس ؟",
-        "back":"لینوس توروالدز"
+        "id": 2,
+        "front": "خالق سیستم عامل لینوکس ؟",
+        "back": "لینوس توروالدز"
       },
       {
-        "id":3,
-        "front":"کشتن | Koshtan",
-        "back":"To kill"
+        "id": 3,
+        "front": "کشتن | Koshtan",
+        "back": "To kill"
       }
     ]
   }

@@ -21,9 +21,12 @@ const Navigation = () => {
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
     };
+
     const handleCloseNavMenu = (page: string) => {
         setAnchorElNav(null);
-        router.push(page.toLowerCase());
+        if (page) {
+            router.push(page.toLowerCase());
+        }
     };
 
     return (
@@ -72,7 +75,7 @@ const Navigation = () => {
                                 horizontal: 'left',
                             }}
                             open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
+                            onClose={() => handleCloseNavMenu('')}
                             sx={{
                                 display: {xs: 'block', md: 'none'},
                             }}
