@@ -23,18 +23,18 @@ const Cards: NextPage = () => {
     const [viewMode, setViewMode] = useState<'cards' | 'exam'>('cards');
 
     const getCurrentCards = useCallback(() => {
-        if(router.isReady){
-            if(!router.query.id){
+        if (router.isReady) {
+            if (!router.query.id) {
                 router.push('sets');
             }
             let finalCards = app.sets.filter(item => item.id.toString() == router.query.id);
-            setCurrentSet((prev:any) => finalCards.length ? {
+            setCurrentSet((prev: any) => finalCards.length ? {
                 cards: shuffleArray(finalCards[0].cards),
                 label: finalCards[0].name,
                 id: finalCards[0].id,
             } : prev);
         }
-    },[router.isReady,app.sets,router.query])
+    }, [router.isReady, app.sets, router.query])
 
     useEffect(() => {
         getCurrentCards();
@@ -72,10 +72,13 @@ const Cards: NextPage = () => {
                     currentSet.cards.length > 0 && <CardsStepper {...currentSet} />
                 )
             }
-            <Box my={2}>
-                {currentSet.cards.length < 1 && (
-                    <Typography variant={'h4'} textAlign={'center'}>No Cards Available !</Typography>)}
-            </Box>
+
+            {currentSet.cards.length < 1 && (
+                <Box my={2}>
+                    <Typography variant={'h4'} textAlign={'center'}>No Cards Available !</Typography>
+                </Box>
+            )}
+
         </div>
     )
 }
